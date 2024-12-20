@@ -538,8 +538,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5009395749932998641, guid: 88e44eee19b3ef14e8dd95fedca52c04, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2529605404144218492}
   m_SourcePrefab: {fileID: 100100000, guid: 88e44eee19b3ef14e8dd95fedca52c04, type: 3}
+--- !u!1 &2529605404144218491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5009395749932998641, guid: 88e44eee19b3ef14e8dd95fedca52c04, type: 3}
+  m_PrefabInstance: {fileID: 2529605404144218490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2529605404144218492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2529605404144218491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44097c9cf58ecdc4f883dc5edd6376bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
+  dir_vector: {x: 0, y: 0}
+  damage: 0
+  enemy_penetrations_remaining: 0
+  needs_trigger: 0
+  trigger_activated: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
