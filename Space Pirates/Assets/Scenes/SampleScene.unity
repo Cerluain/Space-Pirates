@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 203414013}
   - component: {fileID: 203414015}
   - component: {fileID: 203414016}
+  - component: {fileID: 203414017}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -268,7 +269,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -280,6 +281,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &203414017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203414012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62a7d21f5c16a94c87526ce9de4f529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  load_capacity: 50
+  materials: 50
+  mouse_position: {x: 0, y: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +424,7 @@ MonoBehaviour:
   material_cost: 20
   shot_count: 30
   speed: 10
-  bullet_prefab: {fileID: 0}
+  bullet_prefab: {fileID: 6033217341213441838, guid: 9ef9a046d5f63154db3e3703ec1bf86d, type: 3}
 --- !u!212 &711734280
 SpriteRenderer:
   m_ObjectHideFlags: 0
