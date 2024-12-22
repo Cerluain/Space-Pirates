@@ -13,10 +13,13 @@ public class NormalWeaponScript : MonoBehaviour
     public int shot_count = 30;
     public int speed = 10;
     public GameObject bullet_prefab;
+    public Transform player_transform;
 
     // Start is called before the first frame update
 
-    void Start() { }
+    void Start() {
+        GetComponent<Transform>().SetParent(player_transform);
+    }
 
     // Update is called once per frame
     void Update() { }
