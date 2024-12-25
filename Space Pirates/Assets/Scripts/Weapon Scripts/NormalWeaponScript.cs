@@ -9,6 +9,7 @@ public class NormalWeaponScript : MonoBehaviour
     public float WEIGHT_PER_MATERIAL = 10f;
 
     public int damage = 10;
+    public int shot_durability = 1;
     public int material_cost = 10;
     public int shot_count = 30;
     public int speed = 10;
@@ -41,5 +42,7 @@ public class NormalWeaponScript : MonoBehaviour
 
         new_bullet.GetComponent<Rigidbody2D>().AddForce(force_of_interaction);
         player_rigidbody.AddForce(-force_of_interaction);
+
+        new_bullet.GetComponent<BulletScript>().InitializeBullet(damage, shot_durability);
     }
 }

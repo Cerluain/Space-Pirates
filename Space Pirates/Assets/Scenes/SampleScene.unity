@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 203414017}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,7 +297,6 @@ MonoBehaviour:
   health: 50
   load_capacity: 50
   materials: 50
-  mouse_position: {x: 0, y: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,10 +421,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WEIGHT_PER_MATERIAL: 100
   damage: 10
+  shot_durability: 1
   material_cost: 3
   shot_count: 30
   speed: 10
-  bullet_prefab: {fileID: 6033217341213441838, guid: 9ef9a046d5f63154db3e3703ec1bf86d, type: 3}
+  bullet_prefab: {fileID: 5009395749932998641, guid: 88e44eee19b3ef14e8dd95fedca52c04, type: 3}
   player_transform: {fileID: 203414014}
 --- !u!212 &711734280
 SpriteRenderer:

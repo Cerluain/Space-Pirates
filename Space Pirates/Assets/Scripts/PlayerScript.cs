@@ -20,8 +20,9 @@ public class PlayerScript : MonoBehaviour
 
     void ShootWeapon(Vector2 mouse_direction)
     {
-        player_body.mass = materials;
-        current_weapon.GetComponent<NormalWeaponScript>().FireWeapon(mouse_direction, player_body);
+        bool canFire = UpdateMaterialsForShooting(current_weapon.GetComponent<NormalWeaponScript>());
+        if(canFire)
+            current_weapon.GetComponent<NormalWeaponScript>().FireWeapon(mouse_direction, player_body);
         /* switch (selected_weapon){
             case BoomerangWeapon: 
                 break;
@@ -31,6 +32,18 @@ public class PlayerScript : MonoBehaviour
                 break;
         }*/
     }
+
+    bool UpdateMaterialsForShooting(NormalWeaponScript weapon)
+    {
+        materials -= weapon.material_cost;
+        player_body.mass = materials;
+        if(materials < 0){
+            materials = 0;
+            return false;
+        }
+        return true;
+    }
+
     void Start()
     {
         player_body = GetComponent<Rigidbody2D>();
