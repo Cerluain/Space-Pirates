@@ -5,21 +5,24 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Player game properties
     public int health;
     public int load_capacity;
     public int materials;
-    public Vector2 mouse_position;
+
+    // Player attributes
+    Vector2 mouse_position;
     GameObject current_weapon;
     Rigidbody2D player_body;
-    //Weapon selected_weapon
+
+    // Control variables
+    private Vector2 target_direction;
 
     void ShootWeapon(Vector2 mouse_direction)
     {
         player_body.mass = materials;
         current_weapon.GetComponent<NormalWeaponScript>().FireWeapon(mouse_direction, player_body);
-        /* switch (selected_weapon)
-        {
+        /* switch (selected_weapon){
             case BoomerangWeapon: 
                 break;
             case ExplosiveWeapon: 
@@ -38,15 +41,21 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mouse_position = Input.mousePosition;
+        mouse_position = Camera.main.ScreenToWorldPoint(mouse_position);
+        target_direction = mouse_position - player_body.position;
+
         if (Input.GetMouseButtonDown(0))
-        {
-            mouse_position = Input.mousePosition;
-            mouse_position = Camera.main.ScreenToWorldPoint(mouse_position);
-            Vector2 target_direction = mouse_position - player_body.position;
+        { 
             print(mouse_position);
             print(target_direction);
             ShootWeapon(target_direction);
         }
-        
-    } 
+    }  
+    private void FixedUpdate()
+    {
+        float player_angle_offset = Mathf.Atan2(target_direction.y, target_direction.x)* Mathf.Rad2Deg;
+        player_body.rotation = player_angle_offset;
+
+    }
 }

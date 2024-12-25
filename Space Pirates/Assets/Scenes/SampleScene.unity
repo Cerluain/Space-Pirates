@@ -202,13 +202,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203414012}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5718074, y: -0.5922711, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.5215898, w: 0.85319644}
+  m_LocalPosition: {x: 1.7039703, y: -0.80845803, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 711734281}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 62.878}
 --- !u!61 &203414015
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -425,6 +426,7 @@ MonoBehaviour:
   shot_count: 30
   speed: 10
   bullet_prefab: {fileID: 6033217341213441838, guid: 9ef9a046d5f63154db3e3703ec1bf86d, type: 3}
+  player_transform: {fileID: 203414014}
 --- !u!212 &711734280
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -485,12 +487,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711734278}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.27, y: -0.63, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6981926, y: -0.037728786, z: 0}
   m_LocalScale: {x: 0.5752, y: 0.2663936, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 203414014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1226651740
 GameObject:
@@ -583,4 +585,3 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 203414014}
   - {fileID: 1226651742}
-  - {fileID: 711734281}
