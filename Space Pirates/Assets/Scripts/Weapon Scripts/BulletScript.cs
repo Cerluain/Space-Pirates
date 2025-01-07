@@ -9,7 +9,6 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public float BULLET_LIFETIME_CONSTANT = 10f; //The higher the longer the bullet sticks around
-    private float delete_bullet_time = float.MaxValue;
     Rigidbody2D rb;
 
     public int damage; //Usually based on mass, but not necessarily
@@ -28,10 +27,12 @@ public class BulletScript : MonoBehaviour
 
         Invoke("SetLifespanOfBullet", 0.5f);
     }
-    void SetLifespanOfBullet()
+    void SetLifespanOfBullet()  
     {
-        delete_bullet_time = Time.time + BULLET_LIFETIME_CONSTANT / rb.velocity.magnitude;
-        Invoke("DestroyBullet", delete_bullet_time);
+        float life_expectancy = 8f + BULLET_LIFETIME_CONSTANT / rb.velocity.magnitude;
+        life_expectancy = (life_expectancy < 700f && life_expectancy > 0f)? life_expectancy: 120f;
+        print(life_expectancy);
+        Invoke("DestroyBullet", life_expectancy);
     }
     void DestroyBullet()
     {
