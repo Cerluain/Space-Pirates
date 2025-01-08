@@ -12,7 +12,7 @@ public class AttackerScript : MonoBehaviour
     Vector2 vector_to_player;
     public float shooting_cooldown = 5f;
     private float cooldown_since_last_shot = 0f;
-    public float required_distance_to_shoot = 15f;
+    public float required_distance_to_shoot = 5f;
 
     //Other variables
     private GameObject player;
@@ -36,16 +36,16 @@ public class AttackerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         vector_to_player = player_rb.position - rb.position;
-        FaceThePlayer(vector_to_player);
+        
 
         if (UpdateCooldownAndCheckIfEnemyShouldFire())
-        {
-            print("Fired");
             FireWeapon();
-        }
+        else
+            FaceInDirection(IsPlayerInOurShootingRange()? vector_to_player: -vector_to_player);
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -61,19 +61,23 @@ public class AttackerScript : MonoBehaviour
     {
         //Should we get closer or shoot at player?
         if (IsPlayerInOurShootingRange())
-        {
-            print("Player is in range");
+        { 
             //Shoot at player
             weapon_script.FireWeapon(vector_to_player, rb);
             cooldown_since_last_shot = 0f;
         }
         else
         {
-            print("Player is too farr!!!!");
-            print("Required distance is " + required_distance_to_shoot);
-            print("Current distance is " + vector_to_player.magnitude);
             //Shoot three times backwards
+            ExtraShotBackwards();
+            cooldown_since_last_shot = 0f;
+            Invoke("ExtraShotBackwards", .25f);
+            Invoke("ExtraShotBackwards", .5f);
         }
+    }
+    private void ExtraShotBackwards()
+    {
+        weapon_script.FireWeapon(-vector_to_player, rb);
     }
     private bool UpdateCooldownAndCheckIfEnemyShouldFire()
     { 
@@ -84,7 +88,7 @@ public class AttackerScript : MonoBehaviour
     private bool IsPlayerInOurShootingRange()
     { return vector_to_player.magnitude <= required_distance_to_shoot; }
 
-    private void FaceThePlayer(Vector2 target_direction)
+    private void FaceInDirection(Vector2 target_direction)
     {
         float angle_offset = Mathf.Atan2(target_direction.y, target_direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle_offset;
