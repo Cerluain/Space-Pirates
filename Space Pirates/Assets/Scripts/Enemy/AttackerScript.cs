@@ -8,11 +8,14 @@ public class AttackerScript : MonoBehaviour
     public int health;
 
     Rigidbody2D rb;
+    Collider2D this_collider;
     //Weapon weapon = ;
     
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        this_collider = GetComponent<Collider2D>();
         updateHealthAndWeight(50);
     }
 
@@ -27,9 +30,8 @@ public class AttackerScript : MonoBehaviour
         if (object_touched.CompareTag("Bullet")) {
             int damage_taken = object_touched.GetComponent<BulletScript>().damage;
 
-            print("Hit me for ");
-            print(damage_taken);
-            shipHasTakenAHit(damage_taken);
+            if(collision.collider.GetComponent<BulletScript>().isCollisionValidAndUpdateList(gameObject))
+                shipHasTakenAHit(damage_taken);
         }
 
     }
@@ -48,7 +50,7 @@ public class AttackerScript : MonoBehaviour
     {
         health -= reduction_amount;
 
-        if (health <= 0) Destroy(this);
+        if (health <= 0) Destroy(gameObject);
         rb.mass = health;
     }
 }
