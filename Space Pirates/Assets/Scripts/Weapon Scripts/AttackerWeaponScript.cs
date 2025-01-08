@@ -17,7 +17,7 @@ public class AttackerWeaponScript : MonoBehaviour
     // Start is called before the first frame update
 
     void Start()
-    {
+    { 
         //GetComponent<Transform>().SetParent(player_transform);
     }
 

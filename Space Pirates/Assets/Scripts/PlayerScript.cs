@@ -36,12 +36,30 @@ public class PlayerScript : MonoBehaviour
     bool UpdateMaterialsForShooting(NormalWeaponScript weapon)
     {
         materials -= weapon.material_cost;
-        player_body.mass = materials;
-        if(materials < 0){
+        UpdateHealthAndWeight(materials);
+        if (materials < 0){
             materials = 0;
             return false;
         }
         return true;
+    }
+    private void ShipHasTakenAHit(int dmg)
+    {
+        ReduceHealthAndWeight(dmg);
+    }
+
+    private void UpdateHealthAndWeight(int new_health)
+    {
+        health = new_health;
+        player_body.mass = new_health;
+        materials = new_health;
+    }
+    private void ReduceHealthAndWeight(int reduction_amount)
+    {
+        health -= reduction_amount;
+
+        if (health <= 0) Destroy(gameObject);
+        UpdateHealthAndWeight(health);
     }
 
     void Start()
@@ -49,6 +67,7 @@ public class PlayerScript : MonoBehaviour
         player_body = GetComponent<Rigidbody2D>();
         current_weapon = GameObject.Find("Weapon");
         materials = 100;
+        UpdateHealthAndWeight(materials);
     }
 
     // Update is called once per frame
@@ -67,5 +86,16 @@ public class PlayerScript : MonoBehaviour
         float player_angle_offset = Mathf.Atan2(target_direction.y, target_direction.x)* Mathf.Rad2Deg;
         player_body.rotation = player_angle_offset;
 
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Collider2D object_touched = collision.collider;
+        if (object_touched.CompareTag("Bullet"))
+        {
+            int damage_taken = object_touched.GetComponent<BulletScript>().damage;
+
+            if (collision.collider.GetComponent<BulletScript>().isCollisionValidAndUpdateList(gameObject))
+                ShipHasTakenAHit(damage_taken);
+        }
     }
 }
