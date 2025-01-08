@@ -12,17 +12,17 @@ public class BulletScript : MonoBehaviour
 
     public int damage; //Usually based on mass, but not necessarily
     public int enemy_penetrations_remaining;
-    
+
     //Could add a trigger but not all of them need trigger, code below is temporary:
     public bool needs_trigger;
     public bool trigger_activated;
 
     //Bullet general global variables
     Rigidbody2D rb;
-    ArrayList objects_hit_already; 
+    ArrayList objects_hit_already;
 
     public void InitializeBullet(int p_damage, int p_durability)
-    { 
+    {
         rb = GetComponent<Rigidbody2D>();
 
         damage = p_damage;
@@ -47,21 +47,14 @@ public class BulletScript : MonoBehaviour
         if (enemy_penetrations_remaining <= 0)
             Destroy(gameObject);
     }
-    void SetLifespanOfBullet()  
+    void SetLifespanOfBullet()
     {
         float life_expectancy = 8f + BULLET_LIFETIME_CONSTANT / rb.velocity.magnitude;
-        life_expectancy = (life_expectancy < 700f && life_expectancy > 0f)? life_expectancy: 120f;
-        print(life_expectancy);
+        life_expectancy = (life_expectancy < 700f && life_expectancy > 0f) ? life_expectancy : 120f;
         Invoke("DestroyBullet", life_expectancy);
     }
     void DestroyBullet()
     {
         Destroy(gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -1,23 +1,23 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalWeaponScript : MonoBehaviour
+public class AttackerWeaponScript : MonoBehaviour
 {
     //Constants for tweaking the 
     public float WEIGHT_PER_MATERIAL = 10f;
 
-    public int damage = 3;
+    public int damage = 5;
     public int shot_durability = 1;
     public int material_cost = 10;
     public int shot_count = 30;
-    public int speed = 10;
+    public int speed = 4;
     public GameObject bullet_prefab;
 
     // Start is called before the first frame update
 
-    void Start() {
+    void Start()
+    {
         //GetComponent<Transform>().SetParent(player_transform);
     }
 
@@ -28,7 +28,7 @@ public class NormalWeaponScript : MonoBehaviour
     {
         // Instantiate the prefab at the current position and rotation
         GameObject bullet = Instantiate(bullet_prefab, transform.position, transform.rotation);
-        
+        bullet.GetComponent<Rigidbody2D>().mass = material_cost;
         return bullet;
     }
 

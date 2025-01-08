@@ -59,11 +59,8 @@ public class PlayerScript : MonoBehaviour
         target_direction = mouse_position - player_body.position;
 
         if (Input.GetMouseButtonDown(0))
-        { 
-            print(mouse_position);
-            print(target_direction);
             ShootWeapon(target_direction);
-        }
+
     }  
     private void FixedUpdate()
     {

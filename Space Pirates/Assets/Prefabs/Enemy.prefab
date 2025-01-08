@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  shooting_cooldown: 5
+  required_distance_to_shoot: 15
 --- !u!61 &3494525888442875619
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -155,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8047516233296527952}
   - component: {fileID: 8754460556187424865}
-  - component: {fileID: 4082052312945348469}
+  - component: {fileID: 108288973545612340}
   m_Layer: 0
   m_Name: Evil Weapon
   m_TagString: Untagged
@@ -230,7 +232,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4082052312945348469
+--- !u!114 &108288973545612340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,14 +241,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6821214515539979388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fa9c6f4b039cb146812158e2dbbd460, type: 3}
+  m_Script: {fileID: 11500000, guid: b3419a031faf6f340b799de0576de5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WEIGHT_PER_MATERIAL: 100
-  damage: 10
+  WEIGHT_PER_MATERIAL: 10
+  damage: 5
   shot_durability: 1
-  material_cost: 1
+  material_cost: 10
   shot_count: 30
-  speed: 15
-  bullet_prefab: {fileID: 5009395749932998641, guid: 88e44eee19b3ef14e8dd95fedca52c04, type: 3}
-  player_transform: {fileID: 0}
+  speed: 2
+  bullet_prefab: {fileID: 0}

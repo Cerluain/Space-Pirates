@@ -12,12 +12,11 @@ public class Asteroid : MonoBehaviour
     void Start()
     {
         health = 50;
-
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         
     }
 
@@ -25,13 +24,13 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.collider.CompareTag("Bullet"))
         {
-            TakeDamage(collision.collider.GetComponent<BulletScript>().damage);
+            BulletScript b_script = collision.collider.GetComponent<BulletScript>();
+            if (b_script.isCollisionValidAndUpdateList(gameObject))
+                TakeDamage(b_script.damage);
         }
     }
-
     void TakeDamage(int damage)
     {
-        print(damage);
             print("Touch");
             health -= damage;
 
