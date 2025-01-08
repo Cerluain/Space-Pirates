@@ -399,7 +399,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 785ac8b4099dac446a633c3090b556bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c8b364f7fac8d44da5c37129f9d8979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &711734278
@@ -514,6 +514,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2395152866096131903, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3915699896900893337, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
       propertyPath: m_Name
       value: Robot Worker Variant
@@ -574,6 +578,10 @@ PrefabInstance:
     - target: {fileID: 3328763484815268979, guid: b83b47249e8ecb049ab9205b257a4f82, type: 3}
       propertyPath: m_Name
       value: Human Worker
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132108014101465557, guid: b83b47249e8ecb049ab9205b257a4f82, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6403149294674181516, guid: b83b47249e8ecb049ab9205b257a4f82, type: 3}
       propertyPath: m_LocalPosition.x
@@ -689,6 +697,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot Attacker Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2135579107820620488, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.3489797
@@ -742,6 +754,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 509848459382526469, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1187066704415557539, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
       propertyPath: m_Name
       value: Human Attacker Variant
@@ -864,6 +880,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot Attacker Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2135579107820620488, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.1217937
@@ -924,6 +944,10 @@ PrefabInstance:
     - target: {fileID: 1207807131129427432, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395152866096131903, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2913304241895081103, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
       propertyPath: m_Sprite
