@@ -6,7 +6,7 @@ using UnityEngine;
 public class NormalWeaponScript : MonoBehaviour
 {
     //Constants for tweaking the 
-    public float WEIGHT_PER_MATERIAL = 10f;
+    public float WEIGHT_PER_MATERIAL = 3f;
 
     public int damage = 3;
     public int shot_durability = 1;
@@ -36,7 +36,7 @@ public class NormalWeaponScript : MonoBehaviour
     {
         //Creates a bullet prefab and passes weapon properties into the bullet shot
         GameObject new_bullet = generate_bullet();
-        float shooting_force = WEIGHT_PER_MATERIAL * material_cost;
+        float shooting_force = WEIGHT_PER_MATERIAL * material_cost * speed;
         Vector2 force_of_interaction = shooting_direction.normalized * shooting_force;
 
         new_bullet.GetComponent<Rigidbody2D>().AddForce(force_of_interaction);
