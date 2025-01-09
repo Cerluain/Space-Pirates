@@ -15,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - UI
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 3463342267
+    locked: 0
+  - name: Front UI
+    uniqueID: 1033561651
     locked: 0
