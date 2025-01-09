@@ -6,12 +6,16 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     public int health;
-    public int number_of_deposits;
-    
+    public List<GameObject> prefabList = new List<GameObject>();
+    public int max_cluster_count;
+    public int min_cluster_count;
+    public float max_position;
+    public float min_position;
+
     // Start is called before the first frame update
     void Start()
     {
-        health = 50;
+
     }
 
     // Update is called once per frame
@@ -37,6 +41,26 @@ public class Asteroid : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            SpawnClusters();
         }
+    }
+
+    void SpawnClusters()
+    {
+        int prefab_index;
+        int random_number_of_clusters = UnityEngine.Random.Range(min_cluster_count, max_cluster_count);
+        Vector3 transform_position;
+        float y_position;
+        float x_position;
+
+        for (int i = 0; i < random_number_of_clusters; i++)
+        {
+            y_position = UnityEngine.Random.Range(min_position, max_position);
+            x_position = UnityEngine.Random.Range(min_position, max_position);
+            transform_position = new Vector3(x_position, y_position, 0);
+            prefab_index = UnityEngine.Random.Range(0, prefabList.Count - 1);
+            Instantiate(prefabList[prefab_index], transform.position + transform_position, Quaternion.identity);
+        }
+
     }
 }

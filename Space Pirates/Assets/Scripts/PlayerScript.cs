@@ -61,6 +61,12 @@ public class PlayerScript : MonoBehaviour
         if (health <= 0) Destroy(gameObject);
         UpdateHealthAndWeight(health);
     }
+    public void GainHealthAndWeight(int gain_amount)
+    {
+        health += gain_amount;
+
+        UpdateHealthAndWeight(health);
+    }
 
     void Start()
     {
