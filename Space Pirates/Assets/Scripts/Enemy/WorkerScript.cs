@@ -1,51 +1,91 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mail;
 using UnityEngine;
 
 public class WorkerScript : MonoBehaviour
-{ 
+{
+    //Worker attributes
+    public int INITIAL_HEALTH = 50;
     public int health;
-
     Rigidbody2D rb;
-    Collider2D this_collider;
     public float shooting_cooldown = 5f;
     private float cooldown_since_last_shot = 0f;
 
-    //Other variables
-    private GameObject player;
-    Rigidbody2D player_rb;
-    AttackerWeaponScript weapon_script;
+    private bool delivers_goods;
+    private Vector2 current_destination_position;
+    private Vector2 vector_to_target;
 
+    //Assign task to worker: Deliver chastine or Acquire goods
+    private static int goods_delivery_workers_count = 0;
+    private static int chastine_delivery_workers_count = 0;
+
+    //Other related variables
+    private GameObject assigned_delivery_item;
+
+    private Transform delivery_position;
+    private Collider2D delivery_collider;
+    private Transform pickup_position;
+    private Collider2D pickup_collider;
+
+    Rigidbody2D player_rb;
+    MovementWeapon weapon_script;
 
     // Start is called before the first frame update
     void Start()
-    {
-        //Overriding here because there's too many
-        target_time_to_get_in_player_range = 20f;
-
+    { 
         rb = GetComponent<Rigidbody2D>();
-        this_collider = GetComponent<Collider2D>();
 
-        UpdateHealthAndWeight(50);
+        UpdateHealthAndWeight(INITIAL_HEALTH);
 
-        //Relationship Variables
-        player = GameObject.FindGameObjectWithTag("Player");
-        player_rb = player.GetComponent<Rigidbody2D>();
-        weapon_script = GetComponentInChildren<AttackerWeaponScript>();
+        weapon_script = GetComponentInChildren<MovementWeapon>();
+
+        AssignToTaskForWorker();
+    }
+
+    void AssignToTaskForWorker()
+    {
+        delivers_goods = (goods_delivery_workers_count <= chastine_delivery_workers_count)? true: false;
+        
+        if (delivers_goods) BecomeGoodsDeliveryWorker();
+        else BecomeChastineDeliveryWorker();
+    }
+    private void BecomeGoodsDeliveryWorker()
+    {
+        goods_delivery_workers_count++;
+
+        GameObject outpost_delivery = GameObject.Find("GoodsDeliveryArea");
+        GameObject cargo_pickup = null; //GameObject.Find("");
+
+        delivery_position = outpost_delivery.GetComponent<Transform>(); //Outpost delivery area
+        delivery_collider = outpost_delivery.GetComponent<Collider2D>();
+        pickup_position = cargo_pickup.GetComponent<Transform>(); ; //Cargo collecting area 
+        pickup_collider = cargo_pickup.GetComponent<Collider2D>();
 
     }
+    private void BecomeChastineDeliveryWorker()
+    {
+        chastine_delivery_workers_count++;
+
+        GameObject chastine_pickup = GameObject.Find("ChastinePickupArea");
+        GameObject cargo_delivery = null; //GameObject.Find("");
+        
+        delivery_position = cargo_delivery.GetComponent<Transform>(); //Outpost collect area
+        delivery_collider = cargo_delivery.GetComponent<Collider2D>();
+        pickup_position = chastine_pickup.GetComponent<Transform>(); //Cargo collecting area 
+        pickup_collider = chastine_pickup.GetComponent<Collider2D>();
+    }
+
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        vector_to_player = player_rb.position - rb.position;
-
+        vector_to_target = current_destination_position - rb.position;
+        FaceInDirection(-vector_to_target);
 
         if (UpdateCooldownAndCheckIfEnemyShouldFire())
-            FireWeapon();
-        else
-            FaceInDirection(IsPlayerInOurShootingRange() ? vector_to_player : -vector_to_player);
+            ShootBackwards();
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -59,42 +99,17 @@ public class WorkerScript : MonoBehaviour
                 ShipHasTakenAHit(damage_taken);
         }
     }
-    private void FireWeapon()
+
+    private void ShootBackwards()
     {
-        //Should we get closer or shoot at player?
-        if (IsPlayerInOurShootingRange())
-        {
-            //Shoot at player
-            weapon_script.FireWeapon(vector_to_player, rb);
-            cooldown_since_last_shot = 0f;
-        }
-        else
-        {
-            //Shoot three times backwards
-            float time_away_from_player = vector_to_player.magnitude / rb.velocity.magnitude;
-            MultishotAtIntervals("ExtraShotBackwards",
-                (time_away_from_player > target_time_to_get_in_player_range) ? 3 : 2,
-                0.25f);
-        }
-    }
-    private void MultishotAtIntervals(String function_name, int shot_count, float interval_time)
-    {
-        for (float time_for_shot = 0; time_for_shot < shot_count * interval_time; time_for_shot += interval_time)
-            Invoke(function_name, time_for_shot);
-    }
-    private void ExtraShotBackwards()
-    {
-        weapon_script.FireWeapon(-vector_to_player, rb);
+        weapon_script.FireWeapon(-vector_to_target, rb);
         cooldown_since_last_shot = 0f;
     }
     private bool UpdateCooldownAndCheckIfEnemyShouldFire()
     {
         cooldown_since_last_shot += Time.deltaTime;
         return cooldown_since_last_shot >= shooting_cooldown; //Time to shoot
-
     }
-    private bool IsPlayerInOurShootingRange()
-    { return vector_to_player.magnitude <= required_distance_to_shoot; }
 
     private void FaceInDirection(Vector2 target_direction)
     {
@@ -103,9 +118,7 @@ public class WorkerScript : MonoBehaviour
     }
 
     private void ShipHasTakenAHit(int dmg)
-    {
-        ReduceHealthAndWeight(dmg);
-    }
+    {     ReduceHealthAndWeight(dmg);    }
 
     private void UpdateHealthAndWeight(int new_health)
     {
