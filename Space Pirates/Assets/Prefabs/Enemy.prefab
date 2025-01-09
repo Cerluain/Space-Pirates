@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 8754460556187424865}
   - component: {fileID: 108288973545612340}
   m_Layer: 0
-  m_Name: Evil Weapon
+  m_Name: Movement Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
