@@ -955,7 +955,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 8928d0c13bd67624a815052f66871bde, type: 3}
     - target: {fileID: 3915699896900893337, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
       propertyPath: m_Name
-      value: Robot Worker
+      value: Robot Attacker
       objectReference: {fileID: 0}
     - target: {fileID: 4664030280932383590, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
       propertyPath: m_LocalPosition.x
