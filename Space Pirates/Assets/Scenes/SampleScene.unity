@@ -514,10 +514,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2395152866096131903, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3915699896900893337, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
       propertyPath: m_Name
       value: Robot Worker Variant
@@ -578,10 +574,6 @@ PrefabInstance:
     - target: {fileID: 3328763484815268979, guid: b83b47249e8ecb049ab9205b257a4f82, type: 3}
       propertyPath: m_Name
       value: Human Worker
-      objectReference: {fileID: 0}
-    - target: {fileID: 4132108014101465557, guid: b83b47249e8ecb049ab9205b257a4f82, type: 3}
-      propertyPath: speed
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6403149294674181516, guid: b83b47249e8ecb049ab9205b257a4f82, type: 3}
       propertyPath: m_LocalPosition.x
@@ -685,67 +677,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56268e7382180384ea796a64616341bb, type: 3}
---- !u!1001 &1633276577
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 777169427639590766, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: m_Name
-      value: Robot Attacker Variant 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135579107820620488, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.3489797
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.7442932
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
 --- !u!1001 &1641639358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -754,10 +685,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 509848459382526469, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1187066704415557539, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
       propertyPath: m_Name
       value: Human Attacker Variant
@@ -807,6 +734,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
+--- !u!1 &1993811964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1993811966}
+  - component: {fileID: 1993811965}
+  m_Layer: 5
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1993811965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993811964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 8322a080dd9160d498ffa1136883ec93, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 9bd418cb54d8207488971750d47c157a, type: 3}
+  m_SortingOrder: 0
+--- !u!4 &1993811966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993811964}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &169110508985803822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -879,10 +854,6 @@ PrefabInstance:
     - target: {fileID: 777169427639590766, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
       propertyPath: m_Name
       value: Robot Attacker Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135579107820620488, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
-      propertyPath: speed
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8946301571078831761, guid: d38682bee1fd8e04e8af889c35b407c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -959,11 +930,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4664030280932383590, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2632468
+      value: -2.46
       objectReference: {fileID: 0}
     - target: {fileID: 4664030280932383590, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5677394
+      value: -1.9
       objectReference: {fileID: 0}
     - target: {fileID: 4664030280932383590, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1015,4 +986,4 @@ SceneRoots:
   - {fileID: 1641639358}
   - {fileID: 1201849565}
   - {fileID: 1061503705}
-  - {fileID: 1633276577}
+  - {fileID: 1993811966}

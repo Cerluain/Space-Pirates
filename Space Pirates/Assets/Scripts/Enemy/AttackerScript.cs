@@ -13,6 +13,7 @@ public class AttackerScript : MonoBehaviour
     public float shooting_cooldown = 5f;
     private float cooldown_since_last_shot = 0f;
     public float required_distance_to_shoot = 5f;
+    private float target_time_to_get_in_player_range; //In seconds
 
     //Other variables
     private GameObject player;
@@ -22,7 +23,10 @@ public class AttackerScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {
+        //Overriding here because there's too many
+        target_time_to_get_in_player_range = 20f;
+
         rb = GetComponent<Rigidbody2D>();
         this_collider = GetComponent<Collider2D>();
 
@@ -69,15 +73,21 @@ public class AttackerScript : MonoBehaviour
         else
         {
             //Shoot three times backwards
-            ExtraShotBackwards();
-            cooldown_since_last_shot = 0f;
-            Invoke("ExtraShotBackwards", .25f);
-            Invoke("ExtraShotBackwards", .5f);
+            float time_away_from_player = vector_to_player.magnitude / rb.velocity.magnitude;
+            MultishotAtIntervals("ExtraShotBackwards",
+                (time_away_from_player > target_time_to_get_in_player_range)? 3: 2,
+                0.25f);
         }
+    }
+    private void MultishotAtIntervals(String function_name, int shot_count, float interval_time)
+    {
+        for (float time_for_shot = 0; time_for_shot < shot_count * interval_time; time_for_shot += interval_time)
+            Invoke(function_name, time_for_shot);
     }
     private void ExtraShotBackwards()
     {
         weapon_script.FireWeapon(-vector_to_player, rb);
+        cooldown_since_last_shot = 0f;
     }
     private bool UpdateCooldownAndCheckIfEnemyShouldFire()
     { 

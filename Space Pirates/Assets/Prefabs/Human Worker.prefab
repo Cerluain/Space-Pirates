@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 108288973545612340, guid: 7d03328104ef19542bdcdae52b439aaa, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 108288973545612340, guid: 7d03328104ef19542bdcdae52b439aaa, type: 3}
       propertyPath: bullet_prefab
       value: 
       objectReference: {fileID: 5009395749932998641, guid: 88e44eee19b3ef14e8dd95fedca52c04, type: 3}
@@ -38,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1651324246856806802, guid: 7d03328104ef19542bdcdae52b439aaa, type: 3}
       propertyPath: m_Name
-      value: Enemy Variant
+      value: Human Worker
       objectReference: {fileID: 0}
     - target: {fileID: 3494525888442875619, guid: 7d03328104ef19542bdcdae52b439aaa, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -50,11 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6918659584560189549, guid: 7d03328104ef19542bdcdae52b439aaa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.46
+      value: 4.768554
       objectReference: {fileID: 0}
     - target: {fileID: 6918659584560189549, guid: 7d03328104ef19542bdcdae52b439aaa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.55
+      value: 0.4344664
       objectReference: {fileID: 0}
     - target: {fileID: 6918659584560189549, guid: 7d03328104ef19542bdcdae52b439aaa, type: 3}
       propertyPath: m_LocalPosition.z

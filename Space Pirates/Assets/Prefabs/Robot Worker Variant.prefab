@@ -8,13 +8,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 509848459382526469, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1026873948146907573, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b568dd8f2da241247999995151bbcd67, type: 3}
     - target: {fileID: 1187066704415557539, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
       propertyPath: m_Name
-      value: Robot Attacker Variant
+      value: Robot Worker Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3957798208134613202, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -26,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7392628533841782364, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2632468
+      value: 6.5918684
       objectReference: {fileID: 0}
     - target: {fileID: 7392628533841782364, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5677394
+      value: -1.1686742
       objectReference: {fileID: 0}
     - target: {fileID: 7392628533841782364, guid: 3a2888fbcf8df5c41bab9a978a6f25cc, type: 3}
       propertyPath: m_LocalPosition.z
