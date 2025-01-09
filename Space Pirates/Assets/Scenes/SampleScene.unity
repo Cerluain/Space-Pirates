@@ -363,6 +363,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -706,6 +709,9 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a37b94c7a8759ff4e9a51bc73295e957, type: 3}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1154,8 +1160,13 @@ SceneRoots:
   - {fileID: 1478456700}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 6473724392994044194}
   - {fileID: 85513772}
+=======
+  - {fileID: 816211335}
+  - {fileID: 226142194}
+>>>>>>> Stashed changes
 =======
   - {fileID: 816211335}
   - {fileID: 226142194}
