@@ -17,6 +17,7 @@ public class OutpostScript : MonoBehaviour
     public int position_1;
     public int position_2;
     public Vector3 attacker_spawn_offset;
+    public Vector3 flag_position;
 
     private List<GameObject> selected_ships;
     public float interval_between_spawns;
@@ -37,10 +38,9 @@ public class OutpostScript : MonoBehaviour
 
     void SelectFlag()
     {
-        Vector3 transform_position = new Vector3(-2.24f, -8.28f, 0); ;
         flag_index = UnityEngine.Random.Range(0, enemy_flags.Count);
         print(flag_index);
-        Instantiate(enemy_flags[flag_index],transform_position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = 5;
+        Instantiate(enemy_flags[flag_index], transform.position + flag_position, Quaternion.identity).GetComponent<SpriteRenderer>().sortingOrder = 5;
         SpawnShips();
     }
     void SpawnWorkerShip()
