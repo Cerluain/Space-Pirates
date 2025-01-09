@@ -67,7 +67,7 @@ public class MaterialDisplay : MonoBehaviour
             left_pellet.transform.SetParent(transform);
             pellet_objects.Add(left_pellet);
 
-            GameObject right_pellet = Instantiate(material_prefab, transform.position + position_vec_right, Quaternion.identity);
+            GameObject right_pellet = Instantiate(material_prefab, transform.position    + position_vec_right, Quaternion.identity);
             right_pellet.transform.SetParent(transform);
             pellet_objects.Add(right_pellet);
         }
