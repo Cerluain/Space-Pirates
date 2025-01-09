@@ -46,6 +46,7 @@ public class PlayerScript : MonoBehaviour
         health = new_health;
         player_body.mass = new_health;
         materials = new_health;
+        UpdateHealthBar();
     }
     private void ReduceHealthAndWeight(int reduction_amount)
     {
@@ -53,6 +54,11 @@ public class PlayerScript : MonoBehaviour
 
         if (health <= 0) Destroy(gameObject);
         UpdateHealthAndWeight(health);
+        UpdateHealthBar();
+    }
+    private void UpdateHealthBar()
+    {
+        GameObject.Find("Health Meter").GetComponent<MaterialDisplay>().UpdateToShowKAmountOfMaterials(materials);
     }
     public void GainHealthAndWeight(int gain_amount)
     {
@@ -65,7 +71,7 @@ public class PlayerScript : MonoBehaviour
     {
         player_body = GetComponent<Rigidbody2D>();
         current_weapon = GameObject.Find("Weapon");
-        materials = 100;
+        materials = 50;
         UpdateHealthAndWeight(materials);
     }
 
