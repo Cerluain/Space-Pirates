@@ -71,7 +71,5 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-Space Pirates/Assets/Scenes/SampleScene.unity
 Space Pirates/Assets/Starfield Skybox/Skybox.mat
-/Space Pirates/Assets/Scenes
 /Space Pirates/Assets/Starfield Skybox
