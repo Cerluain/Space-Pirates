@@ -31,7 +31,6 @@ public class Asteroid : MonoBehaviour
     }
     void TakeDamage(int damage)
     {
-            print("Touch");
             health -= damage;
 
         if (health <= 0)
