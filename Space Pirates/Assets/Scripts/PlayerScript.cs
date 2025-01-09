@@ -21,26 +21,19 @@ public class PlayerScript : MonoBehaviour
     void ShootWeapon(Vector2 mouse_direction)
     {
         bool canFire = UpdateMaterialsForShooting(current_weapon.GetComponent<NormalWeaponScript>());
-        if(canFire)
-            current_weapon.GetComponent<NormalWeaponScript>().FireWeapon(mouse_direction, player_body);
-        /* switch (selected_weapon){
-            case BoomerangWeapon: 
-                break;
-            case ExplosiveWeapon: 
-                break;
-            case default:
-                break;
-        }*/
+        if (canFire)
+            current_weapon.GetComponent<NormalWeaponScript>().FireWeapon(mouse_direction, player_body); 
     }
 
     bool UpdateMaterialsForShooting(NormalWeaponScript weapon)
     {
-        materials -= weapon.material_cost;
-        UpdateHealthAndWeight(materials);
-        if (materials < 0){
+        if (materials - weapon.material_cost < 0){
             materials = 0;
             return false;
         }
+
+        materials -= weapon.material_cost;
+        UpdateHealthAndWeight(materials); //Only update if it was valid to even shoot
         return true;
     }
     private void ShipHasTakenAHit(int dmg)
