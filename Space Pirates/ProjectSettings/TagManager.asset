@@ -3,12 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Non-Physical
-  - Bullet
-  - Outpost
-  - Enemies
-  - Weapon
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -16,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - UI
+  - 
   - 
   - 
   - 
@@ -43,15 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background Objects
-    uniqueID: 4242718199
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: UI
-    uniqueID: 3463342267
-    locked: 0
-  - name: Front UI
-    uniqueID: 1033561651
     locked: 0

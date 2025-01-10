@@ -26,11 +26,8 @@ public class CameraScript : MonoBehaviour
 
         float total_change_in_size = Mathf.Sqrt(player_rb.velocity.magnitude)+original_cam_size - cam.orthographicSize;
         if (total_change_in_size == 0) return;
-        print(total_change_in_size);
         float increment_amount = MAX_CHANGE_SPEED * Time.deltaTime;
-;       print(increment_amount);
         float total_change_sign = (Mathf.Abs(total_change_in_size) / total_change_in_size);
-        print(total_change_sign);
         cam.orthographicSize = cam.orthographicSize + Mathf.Min(Mathf.Abs(total_change_in_size), total_change_sign * increment_amount);
 
         
