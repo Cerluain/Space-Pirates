@@ -113,6 +113,7 @@ MonoBehaviour:
   position_1: -5
   position_2: 5
   attacker_spawn_offset: {x: 0, y: 3, z: 0}
+  flag_position: {x: -0.25, y: -5.5, z: 0}
   interval_between_spawns: 2
 --- !u!1 &5603431364775119589
 GameObject:
