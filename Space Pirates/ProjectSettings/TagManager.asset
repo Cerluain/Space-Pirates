@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Outpost
   - Enemies
+  - PickupArea
+  - DropoffArea
   layers:
   - Default
   - TransparentFX
